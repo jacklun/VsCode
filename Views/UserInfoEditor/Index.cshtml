@@ -1,0 +1,66 @@
+@model WebEditor.Models.UserDetial
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+<div>
+    <span><img href="#" src="@Html.DisplayFor(model => model.photo)" /></span>
+    <span>
+        @Html.DisplayNameFor(model => model.uname) : @Html.DisplayFor(model => model.uname)
+        <br />
+        @Html.DisplayNameFor(model => model.nickname) : @Html.DisplayFor(model => model.nickname)
+        <br />
+        @Html.DisplayNameFor(model => model.phone) : @Html.DisplayFor(model => model.phone)
+        <br />
+        @Html.Label("修改密码")
+        <br />
+    </span>
+</div>
+<div>
+    @Html.DisplayNameFor(model => model.signatureline)
+    <br />
+    @Html.DisplayFor(model => model.signatureline)
+</div>
+<table class="table">
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.nickname)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.nickname)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.nickname)
+            </td>
+            <td>
+                @{
+                    /*
+                    foreach(Company item in Model.Companys){
+                        Html.DisplayFor(company => item.cname);
+                    }
+                    */
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.nickname)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.signatureline)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@Model.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@Model.id">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

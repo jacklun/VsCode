@@ -1,0 +1,28 @@
+@model WebEditor.Models.UserBase
+
+@{
+    ViewData["Title"] = "登录";
+}
+
+<h2>登录</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="LoginOrCreate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="uname" class="control-label" placeholder="名字或手机号">用户名：</label>
+                <input asp-for="uname" class="form-control" />
+                <span asp-validation-for="uname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="password" class="control-label">密码：</label>
+                <input asp-for="password" class="form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="text-align:center;">
+                <input type="submit" value="登录/注册" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>

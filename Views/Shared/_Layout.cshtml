@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebEditor</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css" asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+    <style>
+        .test{
+            margin-top:0px!important;
+        }
+        .dropdown-menu>li>a:hover{background-color:#ff8000!important;} 
+        .dropdown-menu>li>a{
+            color:white;
+            background-color:#202020!important;
+        }
+        .row>li>a{
+            color:white!important;
+            line-height:22px;
+        }
+        .row{
+            height:50px!important;
+        }
+        .row>li>a:hover{color:#ff8000!important;}
+        a{
+            text-decoration:none;
+        }
+        a:hover{
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a asp-page="/Index" class="navbar-brand">Contoso University</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="ProductMain" asp-action="Index">Products</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a asp-area="" asp-controller="UserLogin" asp-action="Index">登录/注册</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    -->
+    <nav class="test navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header" style="float:left;">
+                <a asp-page="/Index" class="navbar-brand glyphicon glyphicon-home" style="color:white;"> 首页</a>
+            </div>
+            <div class="dropdown nav navbar-nav" style="float:right;">
+                <div class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                    <a href="#" style="color:#ff8000;"><span class="glyphicon glyphicon-th-list" style="font-size:24px;"></span></a>
+                </div>
+                <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1" style="background-color:#202020;">
+                    <li role="presentation" class="open">
+                        <a role="menuitem" tabindex="-1" href="#">搜索</a>
+                    </li>
+                    <li role="presentation" class="divider"></li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#">+ 好友</a>
+                    </li>
+                    <li role="presentation" class="divider"></li>
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#">设置</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <partial name="_CookieConsentPartial" />
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2018 - WebEditor</p>
+        </footer>
+    </div>
+    <!--
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li style="text-align:center;" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><a asp-area="" asp-controller="ProductMain" asp-action="Index" class="glyphicon glyphicon-fire"><br />热点</a></li>
+                <li style="text-align:center;" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><a asp-area="" asp-controller="Home" asp-action="Index" class="glyphicon glyphicon-globe"><br />圈子</a></li>
+                <li style="text-align:center;" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><a asp-area="" asp-controller="UserDetials" asp-action="Index" class="glyphicon glyphicon-user"><br />我</a></li>
+            </ul>
+        </div>
+    </nav>
+    -->
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="container">
+            <div class="row">
+                <li style="text-align:center;" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"><a asp-area="" asp-controller="ProductMain" asp-action="Index" class="glyphicon glyphicon-globe"><br />圈子</a></li>
+                <li style="text-align:center;" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"><a asp-area="" asp-controller="Home" asp-action="Index" class="glyphicon glyphicon-fire"><br />热文</a></li>
+                <li style="text-align:center;" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"><a asp-area="" asp-controller="UserInfoEditor" asp-action="Index" class="glyphicon glyphicon-user"><br />我的</a></li>
+            </div>
+        </div>
+    </nav>
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

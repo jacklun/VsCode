@@ -1,0 +1,8 @@
+@using WebEditor.ViewComponents;
+@model IEnumerable<ProductCategory>
+<div>
+    @foreach (ProductCategory item in Model)
+    {
+        <li><a href="/ProductMain/ProductList?id=@item.id"> @item.tname </a></li>
+    }
+</div>
