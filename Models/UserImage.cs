@@ -9,6 +9,6 @@ namespace WebEditor.Models {
 
         [StringLength (300, MinimumLength = 3, ErrorMessage = "URL必须大于3字，小于等于300字")]
         public string url { get; set; }
-        public IEnumerable<ArticleReferenceImage> ArticleReferenceImage { get; set; }
+        public IEnumerable<ArtReferenceImage> ArticleReferenceImage { get; set; }
     }
 }

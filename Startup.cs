@@ -32,7 +32,7 @@ namespace WebEditor {
             //下一段是用于多数据库连接，单数据库，仅在传输层配置，无需在此和控制器中配置
             //全局注入数据库连接的数据传输层配置
             string connectionstring = Configuration.GetConnectionString ("mysql");
-            services.AddDbContextPool<Dal> (options => options.UseMySQL (connectionstring));
+            services.AddDbContextPool<MulitDbDal> (options => options.UseMySQL (connectionstring));
             //注册数据层服务，不然有时会报错
             //services.AddTransient<Dal> ();
             services.AddSession ();
@@ -40,7 +40,7 @@ namespace WebEditor {
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure (IApplicationBuilder app, IHostingEnvironment env, Dal context) {
+        public void Configure (IApplicationBuilder app, IHostingEnvironment env, MulitDbDal parmMulitDbDal) {
             if (env.IsDevelopment ()) {
                 app.UseDeveloperExceptionPage ();
             } else {

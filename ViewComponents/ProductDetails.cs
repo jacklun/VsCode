@@ -8,12 +8,12 @@ using WebEditor.ViewModels;
 
 namespace WebEditor.ViewComponents {
     public class ProductDetails : ViewComponent {
-        /*
+        
         //private readonly DbContext dbcontext;
         public async Task<IViewComponentResult> InvokeAsync (int pid) {
             Product p = await GetProduct (pid);
             ProductVM pvm = new ProductVM ();
-            pvm.product = p;
+            //pvm.product = p;
             return View ("Index", pvm);
         }
 
@@ -23,6 +23,6 @@ namespace WebEditor.ViewComponents {
             //return Task.FromResult (product);
             return null;
         }
-        */
+        
     }
 }

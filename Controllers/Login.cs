@@ -12,10 +12,10 @@ using WebEditor.Models;
 
 namespace WebEditor.Controllers_ {
     public class Login : Controller {
-        private readonly Dal _context;
+        private readonly MulitDbDal dal;
 
-        public Login (Dal context) {
-            _context = context;
+        public Login (MulitDbDal parmMulitDbDal) {
+            dal = parmMulitDbDal;
         }
 
         // GET: UserLogin
@@ -34,7 +34,7 @@ namespace WebEditor.Controllers_ {
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> LoginOrCreateSkipToUserInfoEditor ([Bind ("uname,password")] UserBase parmUserBase) {
-            UserInfoBL ulbl = new UserInfoBL (_context);
+            UserInfoBL ulbl = new UserInfoBL (dal);
             bool isvalid = await ulbl.LoginOrCreate (parmUserBase);
             if (isvalid) {
                 return RedirectToAction ("Index", "UserInfoEditor");
@@ -46,7 +46,7 @@ namespace WebEditor.Controllers_ {
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> LoginOrCreate ([Bind ("uname,password")] UserBase parmUserBase) {
-            UserInfoBL ulbl = new UserInfoBL (_context);
+            UserInfoBL ulbl = new UserInfoBL (dal);
             CookieManager.http_context = HttpContext;
 
             //测试用，删除cookie保存的用户名密码

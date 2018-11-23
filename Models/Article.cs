@@ -15,6 +15,6 @@ namespace WebEditor.Models {
         //文章优先级1-4，默认是新文章，优先级为2，看过的优先级为4，在关注的文章目录为3，在关注的文章目录，且为新文章为1
         public int priority { get; set; }
 
-        public IEnumerable<ArticleReferenceImage> ArticleReferenceImages { get; set; }
+        public IEnumerable<ArtReferenceImage> ArticleReferenceImages { get; set; }
     }
 }

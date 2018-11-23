@@ -20,7 +20,7 @@ namespace WebEditor.Models {
 
         [DisplayName ("手机"), StringLength (20, MinimumLength = 3, ErrorMessage = "ok")]
         public string phone { get; set; }
-
+        public virtual UserRelationship userrelationship { get; set; }
         public virtual UserDetial userdetial { get; set; }
     }
 }

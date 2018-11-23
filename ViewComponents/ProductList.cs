@@ -9,9 +9,9 @@ using WebEditor.ViewModels;
 
 namespace WebEditor.ViewComponents {
     public class ProductList : ViewComponent {
-        private readonly Dal dal;
-        public ProductList (Dal tmpDal) {
-            dal = tmpDal;
+        private readonly MulitDbDal dal;
+        public ProductList (MulitDbDal parmMulitDbDal) {
+            dal = parmMulitDbDal;
         }
 
         public async Task<IViewComponentResult> InvokeAsync (int tid) {

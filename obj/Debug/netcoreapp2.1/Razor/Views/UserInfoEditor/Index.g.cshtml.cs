@@ -229,7 +229,7 @@ Write(Html.DisplayFor(model => model.signatureline));
             WriteLiteral("\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(1672, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8884d52bcb6b4b9b9c9e19adc4f0da8b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "00ef61a71fd44b6b81bbdead8cf1d339", async() => {
                 BeginContext(1718, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -264,7 +264,7 @@ Write(Html.DisplayFor(model => model.signatureline));
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(1746, 60, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f41cee90788043279efc260138b11b8e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f38c31b94c2c4e9d9a9c96066ab86875", async() => {
                 BeginContext(1795, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -299,7 +299,7 @@ Write(Html.DisplayFor(model => model.signatureline));
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(1826, 58, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b42bed883498403e9a24292f876196b5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "aec1895da7a34a01b0d08e792505e9b6", async() => {
                 BeginContext(1874, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

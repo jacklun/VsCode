@@ -4,10 +4,10 @@ using WebEditor.DataAccessLayer;
 namespace WebEditor.Controllers {
     public class ProductMain : Controller {
 
-        private readonly Dal dal;
+        private readonly MulitDbDal dal;
 
-        public ProductMain (Dal tmpDal) {
-            dal = tmpDal;
+        public ProductMain (MulitDbDal parmMulitDbDal) {
+            dal = parmMulitDbDal;
         }
 
         public IActionResult Index () {

@@ -8,45 +8,37 @@ using Microsoft.EntityFrameworkCore;
 using WebEditor.DataAccessLayer;
 using WebEditor.Models;
 
-namespace WebEditor.Controllers_
-{
-    public class Test : Controller
-    {
-        private readonly Dal _context;
+namespace WebEditor.Controllers_ {
+    public class Test : Controller {
+        private readonly MulitDbDal dal;
 
-        public Test(Dal context)
-        {
-            _context = context;
+        public Test (MulitDbDal parmMulitDbDal) {
+            dal = parmMulitDbDal;
         }
 
         // GET: Test
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Products.ToListAsync());
+        public async Task<IActionResult> Index () {
+            return View (await dal.Products.ToListAsync ());
         }
 
         // GET: Test/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
+        public async Task<IActionResult> Details (int? id) {
+            if (id == null) {
+                return NotFound ();
             }
 
-            var product = await _context.Products
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (product == null)
-            {
-                return NotFound();
+            var product = await dal.Products
+                .FirstOrDefaultAsync (m => m.id == id);
+            if (product == null) {
+                return NotFound ();
             }
 
-            return View(product);
+            return View (product);
         }
 
         // GET: Test/Create
-        public IActionResult Create()
-        {
-            return View();
+        public IActionResult Create () {
+            return View ();
         }
 
         // POST: Test/Create
@@ -54,31 +46,26 @@ namespace WebEditor.Controllers_
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,pname,description,price,discount,image_url")] Product product)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(product);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+        public async Task<IActionResult> Create ([Bind ("id,pname,description,price,discount,image_url")] Product product) {
+            if (ModelState.IsValid) {
+                dal.Add (product);
+                await dal.SaveChangesAsync ();
+                return RedirectToAction (nameof (Index));
             }
-            return View(product);
+            return View (product);
         }
 
         // GET: Test/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
+        public async Task<IActionResult> Edit (int? id) {
+            if (id == null) {
+                return NotFound ();
             }
 
-            var product = await _context.Products.FindAsync(id);
-            if (product == null)
-            {
-                return NotFound();
+            var product = await dal.Products.FindAsync (id);
+            if (product == null) {
+                return NotFound ();
             }
-            return View(product);
+            return View (product);
         }
 
         // POST: Test/Edit/5
@@ -86,68 +73,54 @@ namespace WebEditor.Controllers_
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,pname,description,price,discount,image_url")] Product product)
-        {
-            if (id != product.id)
-            {
-                return NotFound();
+        public async Task<IActionResult> Edit (int id, [Bind ("id,pname,description,price,discount,image_url")] Product product) {
+            if (id != product.id) {
+                return NotFound ();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(product);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ProductExists(product.id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
+            if (ModelState.IsValid) {
+                try {
+                    dal.Update (product);
+                    await dal.SaveChangesAsync ();
+                } catch (DbUpdateConcurrencyException) {
+                    if (!ProductExists (product.id)) {
+                        return NotFound ();
+                    } else {
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction (nameof (Index));
             }
-            return View(product);
+            return View (product);
         }
 
         // GET: Test/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
+        public async Task<IActionResult> Delete (int? id) {
+            if (id == null) {
+                return NotFound ();
             }
 
-            var product = await _context.Products
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (product == null)
-            {
-                return NotFound();
+            var product = await dal.Products
+                .FirstOrDefaultAsync (m => m.id == id);
+            if (product == null) {
+                return NotFound ();
             }
 
-            return View(product);
+            return View (product);
         }
 
         // POST: Test/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName ("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var product = await _context.Products.FindAsync(id);
-            _context.Products.Remove(product);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+        public async Task<IActionResult> DeleteConfirmed (int id) {
+            var product = await dal.Products.FindAsync (id);
+            dal.Products.Remove (product);
+            await dal.SaveChangesAsync ();
+            return RedirectToAction (nameof (Index));
         }
 
-        private bool ProductExists(int id)
-        {
-            return _context.Products.Any(e => e.id == id);
+        private bool ProductExists (int id) {
+            return dal.Products.Any (e => e.id == id);
         }
     }
 }

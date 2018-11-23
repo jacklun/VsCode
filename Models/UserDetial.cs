@@ -32,19 +32,6 @@ namespace WebEditor.Models {
 
         [ForeignKey ("UserBase")]
         public int UserBaseId { get; set; }
-        public virtual UserBase userbase { get; set; }
-        //[DisplayName ("我的公司")]
-        public virtual Company company { get; set; }
-        public IEnumerable<UserImage> UserImages { get; set; }
-
-        public IEnumerable<Article> Articles { get; set; }
-        public IEnumerable<Product> Products { get; set; }
-
-        public IEnumerable<UserArticleCategory> UserArticleCategorys { get; set; }
-        public IEnumerable<UserProductCategory> UserProductCategorys { get; set; }
-
-        public IEnumerable<UserAttentionArticleCategory> UserAttentionArticleCategorys { get; set; }
-        public IEnumerable<UserAttentionProductCategory> UserAttentionProductCategorys { get; set; }
-
+        public virtual UserBase userBase { get; set; }
     }
 }

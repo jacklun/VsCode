@@ -8,10 +8,10 @@ using WebEditor.Models;
 
 namespace WebEditor.BusinessLayer {
     public class UserInfoBL {
-        private readonly Dal dal;
+        private readonly MulitDbDal dal;
 
-        public UserInfoBL (Dal parmDal) {
-            dal = parmDal;
+        public UserInfoBL (MulitDbDal parmMulitDbDal) {
+            dal = parmMulitDbDal;
         }
 
         public async Task<bool> LoginOrCreate (UserBase parmUserBase) {

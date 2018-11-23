@@ -10,10 +10,10 @@ using WebEditor.Models;
 
 namespace WebEditor.Controllers {
     public class HomeController : Controller {
-        private readonly Dal dal;
+        private readonly MulitDbDal dal;
 
-        public HomeController (Dal parmDal) {
-            dal = parmDal;
+        public HomeController (MulitDbDal parmMulitDbDal) {
+            dal = parmMulitDbDal;
         }
 
         public async Task<IActionResult> Index () {

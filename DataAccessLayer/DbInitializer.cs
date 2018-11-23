@@ -6,7 +6,7 @@ using WebEditor.Models;
 
 namespace WebEditor.DataAccessLayer {
     public class DbInitializer {
-        public static void Initialize (Dal context) {
+        public static void Initialize (MulitDbDal parmMulitDbDal) {
             //context.Database.EnsureCreated();
             /*
             // Look for any Products.

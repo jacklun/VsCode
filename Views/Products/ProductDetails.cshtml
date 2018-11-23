@@ -1,0 +1,27 @@
+@using WebEditor.ViewComponents;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+@{
+    //Layout=null;
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width">
+        <title>@ViewData["Title"]</title>
+    </head>
+    <body>
+        <div>
+            @*Html.Partial("")*@
+        </div>
+        <div>
+            <span>in here2</span>
+            @*await Component.InvokeAsync(nameof(ProductDetails), new { pid=ViewData["pid"] })*@
+        </div>
+        <div>
+            @*await Html.PartialAsync("Error1")*@
+        </div>
+    </body>
+</html>

@@ -18,9 +18,9 @@ namespace WebEditor.Models {
         [Required, StringLength (200, ErrorMessage = "ok")]
         public string description { get; set; }
 
-        [ForeignKey ("UserDetial")]
-        public int UserDetialId { get; set; }
-        public virtual UserDetial userdetial { get; set; }
+        [ForeignKey ("UserRelationship")]
+        public int UserRelationshipId { get; set; }
+        //public virtual UserDetial userdetial { get; set; }
         public IEnumerable<Industry> Industrys { get; set; }
     }
 }

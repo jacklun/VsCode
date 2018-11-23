@@ -9,7 +9,12 @@ git config --global user.name "你的用户名"
 git config --global user.email "你的邮箱"
 4、新建远程
 git remote add origin https://github.com/test/Test1.git
-5、提交
+5、使用github要设置SSH Key
+打开git bash，执行
+ssh-keygen -t rsa -C "your email"
+会自动建立.ssh文件夹，其中id_rsa文件即是你的私有密钥，id_rsa.pub是共开密钥
+复制id_rsa.pub文件的内容，然后登录进去你的github找到SSH Keys添加进去
+6、提交
 git push -u origin master  //提交到你的仓库
 
 //生成migrations脚本
