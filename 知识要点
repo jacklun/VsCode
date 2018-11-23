@@ -1,5 +1,17 @@
 
 github Personal access tokens:03ef5141a7663d13c318bdccb711bb4a6f707ba1
+
+集成git：
+1、进入本地工程目录，
+2、git init
+3、配置用户
+git config --global user.name "你的用户名"
+git config --global user.email "你的邮箱"
+4、新建远程
+git remote add origin https://github.com/test/Test1.git
+5、提交
+git push -u origin master  //提交到你的仓库
+
 //生成migrations脚本
 dotnet ef migrations add InitialCreate
 
