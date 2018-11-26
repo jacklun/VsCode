@@ -37,7 +37,7 @@ namespace WebEditor.BusinessLayer {
         }
 
         public static void SetSession (string key, string value) {
-            http_context.Session.SetString(key, value);
+            http_context.Session.SetString (key, value);
         }
     }
 }

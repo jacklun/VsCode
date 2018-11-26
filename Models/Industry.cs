@@ -8,6 +8,8 @@ namespace WebEditor.Models {
         public int id { get; set; }
 
         [Required, StringLength (50, MinimumLength = 2, ErrorMessage = "ok")]
-        public string iname { get; set; }
+        public string name { get; set; }
+        public int companyId { get; set; }
+        public Company company { get; set; }
     }
 }

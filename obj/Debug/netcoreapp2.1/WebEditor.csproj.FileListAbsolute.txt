@@ -105,11 +105,11 @@ c:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor
 c:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor\Views\ProdCategoryEditor\Edit.g.cshtml.cs
 c:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor\Views\ProdCategoryEditor\Index.g.cshtml.cs
 c:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor\Views\Home\Components\ProductDetails\Index.g.cshtml.cs
-c:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor\Views\Home\Components\UserFollowArtList\Index.g.cshtml.cs
-c:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor\Views\Home\Components\UserFollowProdList\Index.g.cshtml.cs
 c:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor\Views\Products\Components\ProdCategoryList\Index.g.cshtml.cs
 c:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor\Views\Products\Components\ProductDetails\Index.g.cshtml.cs
 c:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor\Views\Products\Components\ProductList\Index.g.cshtml.cs
 c:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor\Views\Products\Index.g.cshtml.cs
 c:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor\Views\Products\ProductDetails.g.cshtml.cs
 c:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor\Views\Products\ProductList.g.cshtml.cs
+C:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor\Views\Home\Components\UFolwArtList\Index.g.cshtml.cs
+C:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor\Views\Home\Components\UFolwProdList\Index.g.cshtml.cs

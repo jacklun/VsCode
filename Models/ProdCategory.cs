@@ -8,9 +8,10 @@ namespace WebEditor.Models {
         public int id { get; set; }
 
         [StringLength (10, MinimumLength = 2, ErrorMessage = "产品名称必须大于2字，小于等于10字")]
-        public string tname { get; set; }
-        public IEnumerable<Product> Products { get; set; }
-        public IEnumerable<UserProdCategory> UserProdCategorys { get; set; }
-        public IEnumerable<UserFollowProdCategory> UserFollowProdCategorys { get; set; }
+        public string name { get; set; }
+        public IEnumerable<Product> products { get; set; }
+        public IEnumerable<UProdCategory> uProdCategorys { get; set; }
+        public IEnumerable<UFolwProdCategory> uFolwProdCategorys { get; set; }
+
     }
 }

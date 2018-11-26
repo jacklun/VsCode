@@ -28,7 +28,7 @@ namespace WebEditor.Controllers_ {
             bool is_wxbrowser = Request.Headers["User-Agent"].ToString ().ToLower ().IndexOf ("micromessenger") != -1;
             if (is_wxbrowser) {
                 string openid = "dddddddd";
-                user_base = await ulbl.GetUserBase (parmOpenId: openid);
+                user_base = await ulbl.GetUserBase (pamOpenId: openid);
             } else {
                 //其他浏览器则从cookie中检测用户名和密码
                 CookieManager.http_context = HttpContext;
@@ -40,7 +40,7 @@ namespace WebEditor.Controllers_ {
                 string password = CookieManager.GetCookies ("password");
 
                 if (!string.IsNullOrEmpty (uname) && !string.IsNullOrEmpty (password)) {
-                    user_base = await ulbl.GetUserBase (parmUName: uname, parmPassword: password);
+                    user_base = await ulbl.GetUserBase (pamUName: uname, pamPassword: password);
                     //ViewBag["UserInfo"] = userinfo;
                 }
             }
@@ -78,13 +78,13 @@ namespace WebEditor.Controllers_ {
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create ([Bind ("id,uname,password")] UserBase parmUserBase) {
+        public async Task<IActionResult> Create ([Bind ("id,uname,password")] UserBase pamUserBase) {
             if (ModelState.IsValid) {
-                _context.Add (parmUserBase);
+                _context.Add (pamUserBase);
                 await _context.SaveChangesAsync ();
                 return RedirectToAction (nameof (Index));
             }
-            return View (parmUserBase);
+            return View (pamUserBase);
         }
 
         // GET: UserInfoEditor/Edit/5
@@ -105,17 +105,17 @@ namespace WebEditor.Controllers_ {
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit (int id, [Bind ("id,uname,password")] UserBase parmUserBase) {
-            if (id != parmUserBase.id) {
+        public async Task<IActionResult> Edit (int id, [Bind ("id,uname,password")] UserBase pamUserBase) {
+            if (id != pamUserBase.id) {
                 return NotFound ();
             }
 
             if (ModelState.IsValid) {
                 try {
-                    _context.Update (parmUserBase);
+                    _context.Update (pamUserBase);
                     await _context.SaveChangesAsync ();
                 } catch (DbUpdateConcurrencyException) {
-                    if (!UserBasesExists (parmUserBase.id)) {
+                    if (!UserBasesExists (pamUserBase.id)) {
                         return NotFound ();
                     } else {
                         throw;
@@ -123,7 +123,7 @@ namespace WebEditor.Controllers_ {
                 }
                 return RedirectToAction (nameof (Index));
             }
-            return View (parmUserBase);
+            return View (pamUserBase);
         }
 
         // GET: UserInfoEditor/Delete/5

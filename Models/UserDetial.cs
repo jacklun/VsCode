@@ -13,7 +13,7 @@ namespace WebEditor.Models {
         public string openid { get; set; }
 
         [Required, DisplayName ("用户名"), StringLength (10, MinimumLength = 2, ErrorMessage = "ok")]
-        public string uname { get; set; }
+        public string name { get; set; }
 
         [Required, DisplayName ("密码"), StringLength (20, MinimumLength = 3, ErrorMessage = "ok")]
         public string password { get; set; }
@@ -31,7 +31,7 @@ namespace WebEditor.Models {
         public string signatureline { get; set; }
 
         [ForeignKey ("UserBase")]
-        public int UserBaseId { get; set; }
+        public int userBaseId { get; set; }
         public virtual UserBase userBase { get; set; }
     }
 }

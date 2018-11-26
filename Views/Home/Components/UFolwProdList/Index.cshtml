@@ -3,6 +3,6 @@
 <div>
     @foreach (Product item in Model)
     {
-        <li><a href="/Products/ProductList?id=@item.id"> @item.pname </a></li>
+        <li><a href="/Products/ProductList?id=@item.id"> @item.name | @ViewBag.UserSessionId </a></li>
     }
 </div>

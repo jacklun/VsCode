@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using WebEditor.BusinessLayer;
 using WebEditor.DataAccessLayer;
 using WebEditor.Models;
 
@@ -12,12 +13,16 @@ namespace WebEditor.Controllers {
     public class HomeController : Controller {
         private readonly MulitDbDal dal;
 
-        public HomeController (MulitDbDal parmMulitDbDal) {
-            dal = parmMulitDbDal;
+        public HomeController (MulitDbDal pamMulitDbDal) {
+            dal = pamMulitDbDal;
         }
 
         public async Task<IActionResult> Index () {
-            return View (await dal.Products.ToListAsync ());
+            UserInfoBL ubl = new UserInfoBL (dal, HttpContext);
+            ViewBag.UserSessionId = HttpContext.Session.Id;
+            ViewBag.UserId = 2;
+            //ViewBag.UserRelationship = user_relationship;
+            return View (ubl);
         }
 
         public IActionResult About () {

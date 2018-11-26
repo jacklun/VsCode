@@ -9,9 +9,9 @@ namespace WebEditor.Models {
         public int id { get; set; }
 
         [StringLength (30, MinimumLength = 3, ErrorMessage = "文章名称必须大于3字，小于等于30字")]
-        public string aname { get; set; }
-        public IEnumerable<Article> Articles { get; set; }
-        public IEnumerable<UserArtCategory> UserArtCategorys { get; set; }
-        public IEnumerable<UserFollowArtCategory> UserFollowArtCategorys { get; set; }
+        public string name { get; set; }
+        public IEnumerable<Article> articles { get; set; }
+        //public IEnumerable<UArtCategory> uArtCategorys { get; set; }
+        public IEnumerable<UFolwArtCategory> uFolwArtCategorys { get; set; }
     }
 }

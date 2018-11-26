@@ -13,14 +13,18 @@ namespace WebEditor.Models {
         public string openid { get; set; }
 
         [Required, DisplayName ("用户名"), StringLength (10, MinimumLength = 2, ErrorMessage = "ok")]
-        public string uname { get; set; }
+        public string name { get; set; }
 
         [Required, DisplayName ("密码"), StringLength (20, MinimumLength = 3, ErrorMessage = "ok")]
         public string password { get; set; }
 
         [DisplayName ("手机"), StringLength (20, MinimumLength = 3, ErrorMessage = "ok")]
         public string phone { get; set; }
-        public virtual UserRelationship userrelationship { get; set; }
-        public virtual UserDetial userdetial { get; set; }
+        public virtual UserDetial userDetial { get; set; }
+        public virtual Company company { get; set; }
+        public ICollection<UFolwArtCategory> uFolwArtCategorys { get; set; }
+        public ICollection<UFolwProdCategory> uFolwProdCategorys { get; set; }
+        public IEnumerable<UArtCategory> uArtCategorys { get; set; }
+        public IEnumerable<UProdCategory> uProdCategorys { get; set; }
     }
 }

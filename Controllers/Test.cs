@@ -12,8 +12,8 @@ namespace WebEditor.Controllers_ {
     public class Test : Controller {
         private readonly MulitDbDal dal;
 
-        public Test (MulitDbDal parmMulitDbDal) {
-            dal = parmMulitDbDal;
+        public Test (MulitDbDal pamMulitDbDal) {
+            dal = pamMulitDbDal;
         }
 
         // GET: Test

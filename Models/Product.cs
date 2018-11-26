@@ -8,7 +8,7 @@ namespace WebEditor.Models {
         public int id { get; set; }
 
         [StringLength (30, MinimumLength = 3, ErrorMessage = "产品名称必须大于3字，小于等于30字")]
-        public string pname { get; set; }
+        public string name { get; set; }
 
         [StringLength (200, MinimumLength = 10, ErrorMessage = "产品描述必须大于10字，小于等于200字")]
         public string description { get; set; }
@@ -21,7 +21,7 @@ namespace WebEditor.Models {
 
         [StringLength (200, MinimumLength = 10, ErrorMessage = "产品描述必须大于10字，小于等于200字")]
         public string image_url { get; set; }
-        public int ProdCategoryId { get; set; }
-        public ProdCategory prodcategory { get; set; }
+        public int prodCategoryId { get; set; }
+        public ProdCategory prodCategory { get; set; }
     }
 }

@@ -6,8 +6,8 @@ namespace WebEditor.Controllers {
 
         private readonly MulitDbDal dal;
 
-        public ProductMain (MulitDbDal parmMulitDbDal) {
-            dal = parmMulitDbDal;
+        public ProductMain (MulitDbDal pamMulitDbDal) {
+            dal = pamMulitDbDal;
         }
 
         public IActionResult Index () {

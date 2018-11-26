@@ -8,19 +8,18 @@ namespace WebEditor.Models {
         public int id { get; set; }
 
         [Required, StringLength (50, MinimumLength = 2, ErrorMessage = "ok")]
-        public string cname { get; set; }
+        public string name { get; set; }
         //[Required, StringLength (50, ErrorMessage = "ok")]
         //public virtual Industry industry { get; set; }
 
         [Required, StringLength (50, ErrorMessage = "ok")]
-        public string mainbusiness { get; set; }
+        public string mainBusiness { get; set; }
 
         [Required, StringLength (200, ErrorMessage = "ok")]
         public string description { get; set; }
 
-        [ForeignKey ("UserRelationship")]
-        public int UserRelationshipId { get; set; }
-        //public virtual UserDetial userdetial { get; set; }
-        public IEnumerable<Industry> Industrys { get; set; }
+        [ForeignKey ("UserBase")]
+        public int userBaseId { get; set; }
+        public IEnumerable<Industry> industrys { get; set; }
     }
 }

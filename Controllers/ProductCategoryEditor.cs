@@ -47,13 +47,13 @@ namespace WebEditor.Controllers_ {
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create ([Bind ("id,tname")] ProductCategory parmProductCategory) {
+        public async Task<IActionResult> Create ([Bind ("id,tname")] ProductCategory pamProductCategory) {
             if (ModelState.IsValid) {
-                _context.Add (parmProductCategory);
+                _context.Add (pamProductCategory);
                 await _context.SaveChangesAsync ();
                 return RedirectToAction (nameof (Index));
             }
-            return View (parmProductCategory);
+            return View (pamProductCategory);
         }
 
         // GET: ProductTypeEditor/Edit/5
@@ -74,17 +74,17 @@ namespace WebEditor.Controllers_ {
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit (int id, [Bind ("id,tname")] ProductCategory parmProductCategory) {
-            if (id != parmProductCategory.id) {
+        public async Task<IActionResult> Edit (int id, [Bind ("id,tname")] ProductCategory pamProductCategory) {
+            if (id != pamProductCategory.id) {
                 return NotFound ();
             }
 
             if (ModelState.IsValid) {
                 try {
-                    _context.Update (parmProductCategory);
+                    _context.Update (pamProductCategory);
                     await _context.SaveChangesAsync ();
                 } catch (DbUpdateConcurrencyException) {
-                    if (!ProductCategoryExists (parmProductCategory.id)) {
+                    if (!ProductCategoryExists (pamProductCategory.id)) {
                         return NotFound ();
                     } else {
                         throw;
@@ -92,7 +92,7 @@ namespace WebEditor.Controllers_ {
                 }
                 return RedirectToAction (nameof (Index));
             }
-            return View (parmProductCategory);
+            return View (pamProductCategory);
         }
 
         // GET: ProductTypeEditor/Delete/5

@@ -13,19 +13,19 @@ namespace WebEditor.DataAccessLayer {
 
         public DbSet<UserBase> UserBases { get; set; }
         public DbSet<UserDetial> UserDetials { get; set; }
-        public DbSet<UserRelationship> UserRelationships { get; set; }
+        //public DbSet<URelationship> URelationships { get; set; }
         public DbSet<ProdCategory> ProdCategorys { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Company> Companys { get; set; }
         public DbSet<Industry> Industrys { get; set; }
         public DbSet<ArtCategory> ArtCategorys { get; set; }
         public DbSet<Article> Articles { get; set; }
-        public DbSet<ArtReferenceImage> ArtReferenceImages { get; set; }
-        public DbSet<UserImage> UserImages { get; set; }
-        public DbSet<UserArtCategory> UserArtCategroys { get; set; }
-        public DbSet<UserProdCategory> UserProdCategorys { get; set; }
-        public DbSet<UserFollowArtCategory> UserFollowArtCategorys { get; set; }
-        public DbSet<UserFollowProdCategory> UserFollowProdCategorys { get; set; }
+        public DbSet<ArtRefImage> ArtRefImages { get; set; }
+        public DbSet<UImage> UImages { get; set; }
+        public DbSet<UArtCategory> UArtCategroys { get; set; }
+        public DbSet<UProdCategory> UProdCategorys { get; set; }
+        public DbSet<UFolwArtCategory> UFolwArtCategorys { get; set; }
+        public DbSet<UFolwProdCategory> UFolwProdCategorys { get; set; }
 
         protected override void OnConfiguring (DbContextOptionsBuilder optionBuilder) {
             /*

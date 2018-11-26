@@ -14,8 +14,8 @@ namespace WebEditor.Controllers_ {
     public class Login : Controller {
         private readonly MulitDbDal dal;
 
-        public Login (MulitDbDal parmMulitDbDal) {
-            dal = parmMulitDbDal;
+        public Login (MulitDbDal pamMulitDbDal) {
+            dal = pamMulitDbDal;
         }
 
         // GET: UserLogin
@@ -33,9 +33,9 @@ namespace WebEditor.Controllers_ {
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> LoginOrCreateSkipToUserInfoEditor ([Bind ("uname,password")] UserBase parmUserBase) {
-            UserInfoBL ulbl = new UserInfoBL (dal);
-            bool isvalid = await ulbl.LoginOrCreate (parmUserBase);
+        public async Task<IActionResult> LoginOrCreateSkipToUserInfoEditor ([Bind ("uname,password")] UserBase pamUserBase) {
+            UserInfoBL ulbl = new UserInfoBL (dal, HttpContext);
+            bool isvalid = await ulbl.LoginOrCreate (pamUserBase);
             if (isvalid) {
                 return RedirectToAction ("Index", "UserInfoEditor");
             } else {
@@ -45,15 +45,15 @@ namespace WebEditor.Controllers_ {
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> LoginOrCreate ([Bind ("uname,password")] UserBase parmUserBase) {
-            UserInfoBL ulbl = new UserInfoBL (dal);
+        public async Task<IActionResult> LoginOrCreate ([Bind ("uname,password")] UserBase pamUserBase) {
+            UserInfoBL ulbl = new UserInfoBL (dal, HttpContext);
             CookieManager.http_context = HttpContext;
 
             //测试用，删除cookie保存的用户名密码
             CookieManager.DeleteCookies ("uname");
             CookieManager.DeleteCookies ("password");
 
-            bool isvalid = await ulbl.LoginOrCreate (parmUserBase);
+            bool isvalid = await ulbl.LoginOrCreate (pamUserBase);
             if (isvalid) {
                 return RedirectToAction ("Index", "ProductMain");
             } else {

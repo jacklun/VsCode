@@ -1,0 +1,14 @@
+@using WebEditor.ViewComponents;
+@using WebEditor.ViewModels;
+@model IEnumerable<ArtCategory>
+<div>
+    @foreach (ArtCategory item in Model){  
+        //<li><a href='/ProductMain/ProductDetails?id=@item.Propertys["pname"]'> @item.Propertys["pname"] </a></li>
+        <li><a href="/Products/ProductList?id=@item.id"> @item.name | @ViewBag.UserSessionId </a></li>
+        if(item.articles !=null){            
+            foreach (var art in item.articles){
+                <li><a href="/Products/ProductList?id=@art.id"> @art.name </a></li>
+            }            
+        }
+    }
+</div>

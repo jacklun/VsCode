@@ -17,12 +17,12 @@ namespace WebEditor.DataAccessLayer {
         public DbSet<Industry> Industrys { get; set; }
         public DbSet<ArtCategory> ArtCategorys { get; set; }
         public DbSet<Article> Articles { get; set; }
-        public DbSet<ArtReferenceImage> ArtReferenceImages { get; set; }
-        public DbSet<UserImage> UserImages { get; set; }
-        public DbSet<UserArtCategory> UserArtCategroys { get; set; }
-        public DbSet<UserProdCategory> UserProdCategorys { get; set; }
-        public DbSet<UserFollowArtCategory> UserFollowArtCategorys { get; set; }
-        public DbSet<UserFollowProdCategory> UserFollowProdCategorys { get; set; }
+        public DbSet<ArtRefImage> ArtReferenceImages { get; set; }
+        public DbSet<UImage> UserImages { get; set; }
+        public DbSet<UArtCategory> UserArtCategroys { get; set; }
+        public DbSet<UProdCategory> UserProdCategorys { get; set; }
+        public DbSet<UFolwArtCategory> UserFollowArtCategorys { get; set; }
+        public DbSet<UFolwProdCategory> UserFollowProdCategorys { get; set; }
         protected override void OnConfiguring (DbContextOptionsBuilder optionBuilder) {
             //数据传输层使用单数据库时，可以仅在此注入数据库连接，其他地方无需改动
             //相应传输层的构造器也无参：public Dal1 () : base () { }
