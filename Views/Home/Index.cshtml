@@ -56,21 +56,12 @@
     </a>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Application uses</h2>
-        @await Component.InvokeAsync(nameof(UFolwProdList), new {pamUserInfoBL = Model, pamUserId = ViewBag.UserId })
-    </div>
-    <div class="col-md-4">
-        <h2>How to</h2>
-        @await Component.InvokeAsync(nameof(UFolwArtList), new {pamUserInfoBL = Model, pamUserId = ViewBag.UserId })
-    </div>
-    <div class="col-md-4">
-        <h2>Run &amp; Deploy</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
-        </ul>
-    </div>
+<div class="col-md-12">
+    <h2>新上架</h2>
+    @await Component.InvokeAsync(nameof(UFolwProdList), new {pamUserInfoBL = Model, pamUserId = ViewBag.UserId })
+</div>
+
+<div class="col-md-12" style="border: 1px solid red;">
+    <h2>How to</h2>
+    @await Component.InvokeAsync(nameof(UFolwArtList), new {pamUserInfoBL = Model, pamUserId = ViewBag.UserId })
 </div>

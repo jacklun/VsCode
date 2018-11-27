@@ -43,3 +43,12 @@ ENGINE=InnoDB
          在Startup.cs文件中的Configure方法中加上： app.UseSession(); 进行注册
 							ConfigureServices方法中加上：services.AddSession();
 		 文件中引用using Microsoft.AspNetCore.Http;
+/////////////////////////
+        /*
+        //泛型示例
+        //调用方法
+        Func<bool> my_Func = new Func<bool> ();
+        class Func<T> {
+            public T name;
+        }
+        */

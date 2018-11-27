@@ -107,9 +107,14 @@ namespace WebEditor.BusinessLayer {
         */
 
         public async Task<List<Product>> GetFocusProducts (int pamUserId) {
+            /*
+            var top3 = (from p in dal.Products 
+            from c in dal.UFolwProdCategorys 
+            where (p.prodCategoryId == c.prodCategoryId && c.userBaseId == pamUserId) 
+            select p).Take (6);
+            */
             var top3 = from p in dal.Products
-            from c in dal.UFolwProdCategorys
-            where (p.prodCategoryId == c.prodCategoryId && c.userBaseId == pamUserId)
+            where (from o in dal.UFolwProdCategorys where (o.userBaseId == pamUserId) select o.prodCategoryId).Contains (c.prodCategoryId)
             select p;
 
             return await top3.ToListAsync ();

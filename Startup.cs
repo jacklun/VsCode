@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using WebEditor.BusinessLayer;
 using WebEditor.DataAccessLayer;
 using WebEditor.Models;
 
@@ -37,12 +39,16 @@ namespace WebEditor {
             services.AddDbContextPool<MulitDbDal> (options => options.UseMySQL (connectionstring));
             //注册数据层服务，不然有时会报错
             //services.AddTransient<Dal> ();
-            services.AddSession ();
+
+            services.AddDistributedMemoryCache ();
+
+            services.AddSession (o => o.IdleTimeout = TimeSpan.FromSeconds (8));
+
             services.AddMvc ().SetCompatibilityVersion (CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure (IApplicationBuilder app, IHostingEnvironment env, MulitDbDal pamMulitDbDal) {
+        public void Configure (IApplicationBuilder app, IHostingEnvironment env, MulitDbDal pamMulitDbDal, ILoggerFactory loggerFactory) {
             if (env.IsDevelopment ()) {
                 app.UseDeveloperExceptionPage ();
             } else {
@@ -53,7 +59,7 @@ namespace WebEditor {
             app.UseHttpsRedirection ();
             app.UseStaticFiles ();
             app.UseCookiePolicy ();
-
+            app.UseRequestCulture ();
             app.UseSession ();
 
             app.UseMvc (routes => {

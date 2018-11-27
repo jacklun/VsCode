@@ -1,8 +1,69 @@
 @using WebEditor.ViewComponents;
 @model IEnumerable<Product>
+
 <div>
     @foreach (Product item in Model)
     {
         <li><a href="/Products/ProductList?id=@item.id"> @item.name | @ViewBag.UserSessionId </a></li>
     }
 </div>
+<div comment="超出则滚动条style='overflow-y: scroll;'">
+    <div class="iboot-controller clear"></div>
+</div>
+
+
+<button id="loadmore">加载更多</button>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/iboot.js"></script>
+<script>
+    $(function () {
+        var num=6;
+        var base_height = 200;
+        
+        function getImgList(len) {
+            var random = [];
+            @foreach (Product item in Model)
+            {
+                <text>random.push({src: '@item.image_url'});</text>
+            }
+            /*
+            random.push({src: '/images/Products/banner1.png'})
+            random.push({src: '/images/Products/banner2.png'})
+            random.push({src: '/images/Products/banner3.png'})
+            random.push({src: '/images/Products/banner1.png'})
+            random.push({src: '/images/Products/banner2.png'})
+            random.push({src: '/images/Products/banner3.png'})
+            random.push({src: '/images/Products/banner1.png'})
+            random.push({src: '/images/Products/banner2.png'})
+            random.push({src: '/images/Products/banner3.png'})
+            shuffle(random)
+            for(var i=0; i<len; i++) {
+                //random.push({src: 'https://picsum.photos/' + Srr(100, 900) + '/' + Srr(100, 900)})
+                //random.push({src: '/images/Products/banner1.png'})
+            }
+            */
+            alert(random.length);
+            return random
+        }
+        var iboot = new Iboot($('.iboot-controller'), {
+            list: getImgList(num),
+            baseHeight: base_height,
+            template: function(dom){
+                dom.addClass('some')
+                return dom
+            },
+            beforeLoad: function () {
+                console.log('beforeLoad')
+            },
+            afterLoad: function () {
+                console.log('afterLoad')
+            }
+        })
+        $(window).resize(function () {
+            iboot.resize()
+        })
+        $('#loadmore').click(function () {
+            iboot.loadMore(getImgList(num))
+        })
+    })
+</script>
