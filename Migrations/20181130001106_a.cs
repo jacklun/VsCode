@@ -62,28 +62,6 @@ namespace WebEditor.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Articles",
-                columns: table => new
-                {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("MySQL:AutoIncrement", true),
-                    name = table.Column<string>(maxLength: 30, nullable: true),
-                    description = table.Column<string>(maxLength: 10000, nullable: true),
-                    priority = table.Column<int>(nullable: false),
-                    artCategoryId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Articles", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_Articles_ArtCategorys_artCategoryId",
-                        column: x => x.artCategoryId,
-                        principalTable: "ArtCategorys",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
                 {
@@ -260,33 +238,6 @@ namespace WebEditor.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ArtRefImages",
-                columns: table => new
-                {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("MySQL:AutoIncrement", true),
-                    url = table.Column<string>(maxLength: 300, nullable: true),
-                    articleId = table.Column<int>(nullable: false),
-                    UImageid = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ArtRefImages", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_ArtRefImages_UImages_UImageid",
-                        column: x => x.UImageid,
-                        principalTable: "UImages",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_ArtRefImages_Articles_articleId",
-                        column: x => x.articleId,
-                        principalTable: "Articles",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Industrys",
                 columns: table => new
                 {
@@ -306,20 +257,75 @@ namespace WebEditor.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Articles",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("MySQL:AutoIncrement", true),
+                    name = table.Column<string>(maxLength: 30, nullable: true),
+                    description = table.Column<string>(maxLength: 10000, nullable: true),
+                    priority = table.Column<int>(nullable: false),
+                    artCategoryId = table.Column<int>(nullable: false),
+                    artMainRefImageId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Articles", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Articles_ArtCategorys_artCategoryId",
+                        column: x => x.artCategoryId,
+                        principalTable: "ArtCategorys",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ArtRefImages",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("MySQL:AutoIncrement", true),
+                    url = table.Column<string>(maxLength: 300, nullable: true),
+                    uImageId = table.Column<int>(nullable: false),
+                    Articleid = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ArtRefImages", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_ArtRefImages_Articles_Articleid",
+                        column: x => x.Articleid,
+                        principalTable: "Articles",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ArtRefImages_UImages_uImageId",
+                        column: x => x.uImageId,
+                        principalTable: "UImages",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Articles_artCategoryId",
                 table: "Articles",
                 column: "artCategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ArtRefImages_UImageid",
-                table: "ArtRefImages",
-                column: "UImageid");
+                name: "IX_Articles_artMainRefImageId",
+                table: "Articles",
+                column: "artMainRefImageId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ArtRefImages_articleId",
+                name: "IX_ArtRefImages_Articleid",
                 table: "ArtRefImages",
-                column: "articleId");
+                column: "Articleid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ArtRefImages_uImageId",
+                table: "ArtRefImages",
+                column: "uImageId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Companys_userBaseId",
@@ -382,12 +388,25 @@ namespace WebEditor.Migrations
                 table: "UserDetials",
                 column: "userBaseId",
                 unique: true);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Articles_ArtRefImages_artMainRefImageId",
+                table: "Articles",
+                column: "artMainRefImageId",
+                principalTable: "ArtRefImages",
+                principalColumn: "id",
+                onDelete: ReferentialAction.Cascade);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "ArtRefImages");
+            migrationBuilder.DropForeignKey(
+                name: "FK_Articles_ArtCategorys_artCategoryId",
+                table: "Articles");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_Articles_ArtRefImages_artMainRefImageId",
+                table: "Articles");
 
             migrationBuilder.DropTable(
                 name: "Industrys");
@@ -411,22 +430,25 @@ namespace WebEditor.Migrations
                 name: "UserDetials");
 
             migrationBuilder.DropTable(
-                name: "UImages");
-
-            migrationBuilder.DropTable(
-                name: "Articles");
-
-            migrationBuilder.DropTable(
                 name: "Companys");
 
             migrationBuilder.DropTable(
                 name: "ProdCategorys");
 
             migrationBuilder.DropTable(
+                name: "UserBases");
+
+            migrationBuilder.DropTable(
                 name: "ArtCategorys");
 
             migrationBuilder.DropTable(
-                name: "UserBases");
+                name: "ArtRefImages");
+
+            migrationBuilder.DropTable(
+                name: "Articles");
+
+            migrationBuilder.DropTable(
+                name: "UImages");
         }
     }
 }

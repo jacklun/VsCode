@@ -21,6 +21,7 @@ namespace WebEditor.Models {
 
         [StringLength (200, MinimumLength = 10, ErrorMessage = "产品描述必须大于10字，小于等于200字")]
         public string image_url { get; set; }
+
         public int prodCategoryId { get; set; }
         public ProdCategory prodCategory { get; set; }
     }

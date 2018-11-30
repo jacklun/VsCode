@@ -9,8 +9,8 @@ using WebEditor.DataAccessLayer;
 namespace WebEditor.Migrations
 {
     [DbContext(typeof(MulitDbDal))]
-    [Migration("20181126113425_a")]
-    partial class a
+    [Migration("20181130010719_b")]
+    partial class b
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,6 +38,8 @@ namespace WebEditor.Migrations
 
                     b.Property<int>("artCategoryId");
 
+                    b.Property<int>("artMainRefImageId");
+
                     b.Property<string>("description")
                         .HasMaxLength(10000);
 
@@ -50,6 +52,8 @@ namespace WebEditor.Migrations
 
                     b.HasIndex("artCategoryId");
 
+                    b.HasIndex("artMainRefImageId");
+
                     b.ToTable("Articles");
                 });
 
@@ -58,18 +62,15 @@ namespace WebEditor.Migrations
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("UImageid");
+                    b.Property<int?>("Articleid");
 
-                    b.Property<int>("articleId");
-
-                    b.Property<string>("url")
-                        .HasMaxLength(300);
+                    b.Property<int>("uImageId");
 
                     b.HasKey("id");
 
-                    b.HasIndex("UImageid");
+                    b.HasIndex("Articleid");
 
-                    b.HasIndex("articleId");
+                    b.HasIndex("uImageId");
 
                     b.ToTable("ArtRefImages");
                 });
@@ -312,17 +313,22 @@ namespace WebEditor.Migrations
                         .WithMany("articles")
                         .HasForeignKey("artCategoryId")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("WebEditor.Models.ArtRefImage", "artMainRefImage")
+                        .WithMany()
+                        .HasForeignKey("artMainRefImageId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("WebEditor.Models.ArtRefImage", b =>
                 {
-                    b.HasOne("WebEditor.Models.UImage")
-                        .WithMany("artRefImage")
-                        .HasForeignKey("UImageid");
-
-                    b.HasOne("WebEditor.Models.Article", "article")
+                    b.HasOne("WebEditor.Models.Article")
                         .WithMany("artRefImages")
-                        .HasForeignKey("articleId")
+                        .HasForeignKey("Articleid");
+
+                    b.HasOne("WebEditor.Models.UImage", "uimage")
+                        .WithMany("artRefImage")
+                        .HasForeignKey("uImageId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

@@ -113,3 +113,6 @@ c:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor
 c:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor\Views\Products\ProductList.g.cshtml.cs
 C:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor\Views\Home\Components\UFolwArtList\Index.g.cshtml.cs
 C:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor\Views\Home\Components\UFolwProdList\Index.g.cshtml.cs
+C:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor\Views\Home\Components\UFolwProdList\Index0.g.cshtml.cs
+C:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.1.g.cshtml.cs
+C:\MyProjects\VsCode-Insiders\Workspaces\WebEditor\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.0.g.cshtml.cs

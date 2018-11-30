@@ -56,12 +56,21 @@
     </a>
 </div>
 
-<div class="col-md-12">
-    <h2>新上架</h2>
-    @await Component.InvokeAsync(nameof(UFolwProdList), new {pamUserInfoBL = Model, pamUserId = ViewBag.UserId })
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        <h3 class="panel-title">新上架</h3>
+    </div>
+    <div class="panel-body">
+        @await Component.InvokeAsync(nameof(UFolwProdList), new {pamUserInfoBL = Model, pamFocusNumber = 2, pamUserId = ViewBag.UserId })
+    </div>
 </div>
 
-<div class="col-md-12" style="border: 1px solid red;">
-    <h2>How to</h2>
-    @await Component.InvokeAsync(nameof(UFolwArtList), new {pamUserInfoBL = Model, pamUserId = ViewBag.UserId })
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        <h3 class="panel-title">新上架</h3>
+    </div>
+    <table class="table">
+        <th>产品</th><th>价格 </th>
+        @await Component.InvokeAsync(nameof(UFolwArtList), new {pamUserInfoBL = Model, pamUserId = ViewBag.UserId })
+    </table>
 </div>

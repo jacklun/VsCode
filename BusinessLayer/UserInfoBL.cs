@@ -106,16 +106,20 @@ namespace WebEditor.BusinessLayer {
         }
         */
 
-        public async Task<List<Product>> GetFocusProducts (int pamUserId) {
+        public async Task<List<Product>> GetFocusProducts (int pamFocusNumber, int pamUserId) {
             /*
             var top3 = (from p in dal.Products 
             from c in dal.UFolwProdCategorys 
             where (p.prodCategoryId == c.prodCategoryId && c.userBaseId == pamUserId) 
             select p).Take (6);
             */
-            var top3 = from p in dal.Products
-            where (from o in dal.UFolwProdCategorys where (o.userBaseId == pamUserId) select o.prodCategoryId).Contains (c.prodCategoryId)
-            select p;
+
+            string sql = "select * from products a where (select count(*) from products b where b.prodcategoryid=a.prodcategoryid and b.id<a.id) <@focusNumber and prodcategoryid in (select prodcategoryid from UFolwProdCategorys where userBaseId=@userBaseId)";
+            MySqlParameter[] paras = new MySqlParameter[] {
+                new MySqlParameter ("@focusNumber", pamFocusNumber),
+                new MySqlParameter ("@userBaseId", pamUserId),
+            };
+            var top3 = dal.Products.FromSql (sql, paras);
 
             return await top3.ToListAsync ();
         }

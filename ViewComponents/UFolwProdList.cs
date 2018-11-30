@@ -16,11 +16,11 @@ namespace WebEditor.ViewComponents {
             dal = pamMulitDbDal;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync (UserInfoBL pamUserInfoBL, int pamUserId) {
+        public async Task<IViewComponentResult> InvokeAsync (UserInfoBL pamUserInfoBL, int pamFocusNumber, int pamUserId) {
             //UserRelationship user_relationship = await pamUserInfoBL.GetUserRelationship (pamUserId);
             //URelationship user_relationship = ViewBag.URelationship;
             //UserInfoBL ubl = new UserInfoBL (dal, HttpContext);
-            List<Product> product_list = await pamUserInfoBL.GetFocusProducts (pamUserId);
+            List<Product> product_list = await pamUserInfoBL.GetFocusProducts (pamFocusNumber, pamUserId);
             //乱序list
             Random random = new Random ();
             int count = product_list.Count;

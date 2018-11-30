@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebEditor.Models {
     public class Article {
@@ -16,6 +17,10 @@ namespace WebEditor.Models {
         public int priority { get; set; }
         public int artCategoryId { get; set; }
         public ArtCategory artCategory { get; set; }
+
+        public int artMainRefImageId { get; set; }
+        public ArtRefImage artMainRefImage { get; set; }
+
         public IEnumerable<ArtRefImage> artRefImages { get; set; }
     }
 }

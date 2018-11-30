@@ -26,5 +26,6 @@ namespace WebEditor.Models {
         public ICollection<UFolwProdCategory> uFolwProdCategorys { get; set; }
         public IEnumerable<UArtCategory> uArtCategorys { get; set; }
         public IEnumerable<UProdCategory> uProdCategorys { get; set; }
+        public IEnumerable<UImage> uImages { get; set; }
     }
 }

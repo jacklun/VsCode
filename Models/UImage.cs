@@ -7,8 +7,10 @@ namespace WebEditor.Models {
         [Key]
         public int id { get; set; }
 
-        [StringLength (300, MinimumLength = 3, ErrorMessage = "URL必须大于3字，小于等于300字")]
-        public string url { get; set; }
-        public IEnumerable<ArtRefImage> artRefImage { get; set; }
+        public int userBaseId { get; set; }
+        public UserBase userBase { get; set; }
+
+        public int imageId { get; set; }
+        public Image image { get; set; }
     }
 }
